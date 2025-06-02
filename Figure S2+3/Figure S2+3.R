@@ -93,7 +93,7 @@ length(SpecificTFs)
 
 genes_df <- data.frame(gene = SpecificTFs)
 mapped_genes <- string_db$map(genes_df, "gene", removeUnmappedRows = TRUE)
-png("FigureS3_StringNetwork.png",width=180, height=180, units="mm",res = 300)
+png("FigureS2_StringNetwork.png",width=180, height=180, units="mm",res = 300)
 string_db$plot_network(mapped_genes$STRING_id)
 dev.off()
 
