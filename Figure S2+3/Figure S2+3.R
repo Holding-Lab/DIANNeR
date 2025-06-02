@@ -3,7 +3,7 @@
 #Protein Threshold 1% FDR,
 #Min # of peptides 2,
 #Peptide 1% FDR
-
+#Exported Total Spectral Count 
 df<-read.delim('Scafold/Samples Report With Clusters for D676.tsv')
 
 dfNoClusters<-df[grep("\\.", df$X., invert=TRUE ),]
@@ -98,7 +98,6 @@ string_db$plot_network(mapped_genes$STRING_id)
 dev.off()
 
 #GProfiler on SpecificTFs
-
 library(gprofiler2)
 
 gost_results <- gost(
@@ -117,6 +116,7 @@ nuclear_related <- subset(gost_results$result,
 library(ggplot2)
 library(tidyr)
 
+#GG bar plot (unused)
 ggplot(head(nuclear_related, 10), aes(x = reorder(term_name, -p_value), y = -log10(p_value))) +
   geom_col(fill = "steelblue") +
   coord_flip() +
@@ -126,7 +126,7 @@ ggplot(head(nuclear_related, 10), aes(x = reorder(term_name, -p_value), y = -log
   theme_minimal()
 
 
-#Gost plot
+#Gost plot 
 p<-gostplot(gost_results, capped = TRUE, interactive = FALSE)
 p
 term_names<-grep("transcript|chromatin|SWI/SNF|nuclear|steroid", gost_results$result$term_name, ignore.case = TRUE, value = TRUE)
@@ -144,5 +144,4 @@ highlight_ids_curated<-c(
 pdf("FigureS3_Gprofiler.pdf",width=10,height=12,pointsize=8)
 p2<-publish_gostplot(p, highlight_terms = highlight_ids_curated)
 dev.off()
-
 
