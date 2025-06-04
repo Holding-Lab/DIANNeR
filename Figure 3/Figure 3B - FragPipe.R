@@ -13,7 +13,6 @@ pca_data$Antibody <- ifelse(grepl("GR", pca_data$condition), "GR",
 
 pca_data$Pool <- ifelse(grepl("Pool", pca_data$label), "Pool", "Indiviual")
 
-pca_data$Prefix <- sub("_.*", "", pca_data$label)
 pca_data$Prefix <- trimws(sub("_.*", "", pca_data$label)) #One sample has a tailing space
 
 tissue_map <- c(
@@ -89,21 +88,4 @@ ggsave(
 )
 
 
-
-#Impute done in preprocessing? 
-library(FragPipeAnalystR)
-load("FragPipe Output/Imputed_SE.RData")
-FPRime<-RData
-#FPRime <- impute(FPRime, fun = "mixed")
-FPRime <- test_limma(FPRime, type="all")
-FPRime <- add_rejections(FPRime, alpha = 0.01, lfc = 1)
-
-FPRime$Antibody <- ifelse(grepl("GR", colnames(FPRime)), "GR", 
-                            ifelse(grepl("IgG", colnames(FPRime)), "IgG", 
-                                   "Other"))
-
-get_cluster_heatmap(FPRime, type="centered", 
-                    indicate = c("Antibody"),
-                    show_row_names = FALSE,
-                    show_heatmap_legend = FALSE)
 
