@@ -87,3 +87,23 @@ ggsave(
   dpi = 300,
   device = "pdf"
 )
+
+
+
+#Impute done in preprocessing? 
+library(FragPipeAnalystR)
+load("FragPipe Output/Imputed_SE.RData")
+FPRime<-RData
+#FPRime <- impute(FPRime, fun = "mixed")
+FPRime <- test_limma(FPRime, type="all")
+FPRime <- add_rejections(FPRime, alpha = 0.01, lfc = 1)
+
+FPRime$Antibody <- ifelse(grepl("GR", colnames(FPRime)), "GR", 
+                            ifelse(grepl("IgG", colnames(FPRime)), "IgG", 
+                                   "Other"))
+
+get_cluster_heatmap(FPRime, type="centered", 
+                    indicate = c("Antibody"),
+                    show_row_names = FALSE,
+                    show_heatmap_legend = FALSE)
+
