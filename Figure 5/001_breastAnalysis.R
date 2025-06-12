@@ -261,5 +261,5 @@ p7<-EnhancedVolcano(DEResultsHOX,
 
 phox<-ggarrange(p5,p6,p7,ncol=3)
 
-figure5<-ggarrange(ptop,pbottom,phox,nrow=3)
-
+Figure5<-ggarrange(ptop,pbottom,phox,nrow=3)
+ggsave("Figure5.svg",Figure5,units="mm",dpi=300,width=180, height=215)
