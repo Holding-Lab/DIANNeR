@@ -22,9 +22,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
-     inkscape:zoom="1.0353678"
-     inkscape:cx="411.44801"
-     inkscape:cy="458.29127"
+     inkscape:zoom="0.82041899"
+     inkscape:cx="312.03568"
+     inkscape:cy="395.52961"
      inkscape:window-width="1392"
      inkscape:window-height="1212"
      inkscape:window-x="3257"
@@ -47,6 +47,186 @@
       white-space: pre;
     }
   ]]></style>
+    <clipPath
+       id="cpMC4wMHw1MTAuMjR8MC4wMHw2MDkuNDU=-5">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect2-3" />
+    </clipPath>
+    <clipPath
+       id="clipPath1">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect1-9" />
+    </clipPath>
+    <clipPath
+       id="clipPath3">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect3-0" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHwxNzAuMDh8NDA2LjMwfDYwOS40NQ==-5">
+      <rect
+         x="0"
+         y="406.29999"
+         width="170.08"
+         height="203.14999"
+         id="rect16069-5" />
+    </clipPath>
+    <clipPath
+       id="clipPath4">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect4-6" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHw1MTAuMjR8NDA2LjMwfDYwOS40NQ==-3">
+      <rect
+         x="0"
+         y="406.29999"
+         width="510.23999"
+         height="203.14999"
+         id="rect16067-2" />
+    </clipPath>
+    <clipPath
+       id="clipPath5">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect5-6" />
+    </clipPath>
+    <clipPath
+       id="cpMjU1LjEyfDUxMC4yNHwyMDMuMTV8NDA2LjMw-8">
+      <rect
+         x="255.12"
+         y="203.14999"
+         width="255.12"
+         height="203.14999"
+         id="rect16018-9" />
+    </clipPath>
+    <clipPath
+       id="clipPath6">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect6-1" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHwyNTUuMTJ8MjAzLjE1fDQwNi4zMA==-4">
+      <rect
+         x="0"
+         y="203.14999"
+         width="255.12"
+         height="203.14999"
+         id="rect8040-8" />
+    </clipPath>
+    <clipPath
+       id="clipPath7">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect7" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHw1MTAuMjR8MjAzLjE1fDQwNi4zMA==-8">
+      <rect
+         x="0"
+         y="203.14999"
+         width="510.23999"
+         height="203.14999"
+         id="rect8038-7" />
+    </clipPath>
+    <clipPath
+       id="clipPath8">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect8" />
+    </clipPath>
+    <clipPath
+       id="clipPath9">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect9" />
+    </clipPath>
+    <clipPath
+       id="cpMjU1LjEyfDUxMC4yNHwwLjAwfDIwMy4xNQ==-1">
+      <rect
+         x="255.12"
+         y="0"
+         width="255.12"
+         height="203.14999"
+         id="rect7987-9" />
+    </clipPath>
+    <clipPath
+       id="clipPath10">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect10" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHwyNTUuMTJ8MC4wMHwyMDMuMTU=-3">
+      <rect
+         x="0"
+         y="0"
+         width="255.12"
+         height="203.14999"
+         id="rect11" />
+    </clipPath>
+    <clipPath
+       id="clipPath12">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect12" />
+    </clipPath>
+    <clipPath
+       id="cpMC4wMHw1MTAuMjR8MC4wMHwyMDMuMTU=-1">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="203.14999"
+         id="rect13" />
+    </clipPath>
+    <clipPath
+       id="clipPath14">
+      <rect
+         x="0"
+         y="0"
+         width="510.23999"
+         height="609.45001"
+         id="rect14" />
+    </clipPath>
   </defs>
   <rect
      width="100%"
@@ -2190,12 +2370,6 @@
        lengthAdjust="spacingAndGlyphs"
        id="text16067">Neither</text>
   </g>
-  <rect
-     x="0"
-     y="0"
-     width="510.23999"
-     height="609.45001"
-     id="rect40022" />
   <defs
      id="defs16067">
     <clipPath

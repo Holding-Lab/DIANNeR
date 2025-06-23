@@ -25,6 +25,7 @@ library(EnhancedVolcano)
 
 #Curated list 
 #https://www.genenames.org/data/genegroup/#!/group/1605
+#download 23/6/06
 
 #Relevant references
 #BCL11B and FOXP3 https://pmc.ncbi.nlm.nih.gov/articles/PMC6685721/
@@ -231,7 +232,7 @@ p5
 row2<-ggarrange(p3,p4,p5,ncol=3)
 
 
-ggarrange(row1,row2,nrow=2)
+Figure6<-ggarrange(row1,row2,nrow=2)
 
-#Figure6<-ggarrange(ptop,pbottom,phox,nrow=3)
-#ggsave("Figure6.svg",Figure5,units="mm",dpi=300,width=180, height=215)
+
+ggsave("Figure6.svg",Figure6,units="mm",dpi=300,width=180, height=140)
