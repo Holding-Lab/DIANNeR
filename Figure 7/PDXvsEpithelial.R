@@ -296,7 +296,6 @@ barplot<-ggbarplot(df, x="pdx",y="negLogP",
 row2<-ggarrange(violin_plot,barplot, widths=c(1,2),ncol=2)
 
 
-
 #Final blot is combined PDX vs IgG, bar plot and PDX vs epithelial..
 
 #BioGrid ESR1 downloaded 1/05/2025
@@ -405,7 +404,7 @@ enrichTermsPDX<-function(DEResults, pdx="PDX"){
   term2gene<-rbind(term2gene_go,data.frame(gene=term2gene_React,term="R-HSA-9006931"))
   
   lfc_col <- paste0("Negative_", pdx, "_IgG_IP_vs_", pdx, "_GR_IP_log2.fold.change")
-  pval_col <- paste0(pdx, "_IgG_IP_vs_", pdx, "GR_IP_p.adj")
+  pval_col <- paste0(pdx, "_IgG_IP_vs_", pdx, "_GR_IP_p.adj")
   
   
   filtered_proteins <- DEResults$Gene.Name[
@@ -450,6 +449,7 @@ enrichTermsPDX<-function(DEResults, pdx="PDX"){
 }
 
 pdxTERMS<-data.frame(enrichTermsPDX(DEResultsReorderPDX,pdx="PDX")[c('ID','p.adjust')],pdx="Combined PDXs")
+
 
 pdxTERMS$negLogP <- -log10(pdxTERMS$p.adjust)
 pdxTERMS$Description <- id_descriptions[pdxTERMS$ID]
@@ -518,6 +518,12 @@ Figure7<-ggarrange(row2,row3,nrow=2)
 
 ggsave("Figure7.svg",Figure7,units="mm",dpi=300,width=180, height=140)
 
+
+
+DEResultsReorderPDX$PrimaryCD4_plus_T_GR_vs_PDX_GR_IP_p.adj[DEResultsReorderPDX$Gene.Name =="SMARCD3"]
+#[1] 0.013
+DEResultsReorderPDX$PrimaryCD4_plus_T_GR_vs_PDX_GR_IP_log2.fold.change[DEResultsReorderPDX$Gene.Name =="SMARCD3"]
+#[1] -2.26
 
 # Not used. 
 #
