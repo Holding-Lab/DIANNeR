@@ -405,7 +405,7 @@ enrichTermsPDX<-function(DEResults, pdx="PDX"){
   term2gene<-rbind(term2gene_go,data.frame(gene=term2gene_React,term="R-HSA-9006931"))
   
   lfc_col <- paste0("Negative_", pdx, "_IgG_IP_vs_", pdx, "_GR_IP_log2.fold.change")
-  pval_col <- paste0(pdx, "_IgG_IP_vs_", pdx, "_GR_IP_p.val")
+  pval_col <- paste0(pdx, "_IgG_IP_vs_", pdx, "GR_IP_p.adj")
   
   
   filtered_proteins <- DEResults$Gene.Name[
