@@ -500,15 +500,42 @@ p5<-EnhancedVolcano(DEResultsReorderPDX,
 p5
 
 # ESR1 -
-# DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_log2.fold.change[DEResultsReorderPDX$'Gene.Name'=="ESR1"]
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_log2.fold.change[DEResultsReorderPDX$'Gene.Name'=="ESR1"]
 # [1] -4.04
-#DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.adj[DEResultsReorderPDX$'Gene.Name'=="ESR1"]
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.adj[DEResultsReorderPDX$'Gene.Name'=="ESR1"]
 # [1] 0.00147
-#DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.val[DEResultsReorderPDX$'Gene.Name'=="ESR1"]
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.val[DEResultsReorderPDX$'Gene.Name'=="ESR1"]
 #[1] 0.000437
+
+# GREB1 -
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_log2.fold.change[DEResultsReorderPDX$'Gene.Name'=="GREB1"]
+# [1] -4.13
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.adj[DEResultsReorderPDX$'Gene.Name'=="GREB1"]
+# [1] 0.00754
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.val[DEResultsReorderPDX$'Gene.Name'=="GREB1"]
+#[1] 0.00297
+
+
+# FOXA1 -
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_log2.fold.change[DEResultsReorderPDX$'Gene.Name'=="FOXA1"]
+# [1] -5.45
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.adj[DEResultsReorderPDX$'Gene.Name'=="FOXA1"]
+# [1] 3.56e-08
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.val[DEResultsReorderPDX$'Gene.Name'=="FOXA1"]
+#[1] 3e-09
 
 row3<-ggarrange(p4,barplot2,p5,ncol=3)
  
+
+# HOX5 -
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_log2.fold.change[DEResultsReorderPDX$'Gene.Name'=="HOXA5"]
+# [1] 6.54
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.adj[DEResultsReorderPDX$'Gene.Name'=="HOXA5"]
+# [1] 5.47e-10
+DEResultsReorderPDX$PrimaryBreastEpis_GR_vs_PDX_GR_IP_p.val[DEResultsReorderPDX$'Gene.Name'=="HOXA5"]
+# [1] 2.72e-11
+
+row3<-ggarrange(p4,barplot2,p5,ncol=3)
  
 ggarrange(row1,row2,row3,nrow=3) #removed row1, as p-values for n=1 is hard to justify even if Fragpipe is able to. 
                                  #Instead row2 used LFC < 2 
