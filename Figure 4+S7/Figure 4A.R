@@ -1,4 +1,5 @@
 library(RColorBrewer)
+library(pheatmap)
 
 DEResults<-read.csv("FragPipe Output/DE_results.csv")
 
