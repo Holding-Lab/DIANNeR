@@ -79,16 +79,16 @@ pca12<-ggplot(pca_df, aes(x = PC1, y = PC2, label = Sample, color=Origin)) +
   geom_point(size = 4) +
   geom_text(vjust = -0.5) +
   labs(title = "Principal Components 1 & 2",
-       x = paste0("PC1 (", round(100 * summary(pca_res)$importance[1, ], 1), "% variance)"),
-       y = paste0("PC2 (", round(100 * summary(pca_res)$importance[2, ], 1), "% variance)")) +
+       x = paste0("PC1 (", round(100 * summary(pca_res)$importance[2, 1], 1), "% variance)"),
+       y = paste0("PC2 (", round(100 * summary(pca_res)$importance[2, 2], 1), "% variance)")) +
   theme_pubr()
 
 pca23<-ggplot(pca_df, aes(x = PC2, y = PC3, label = Sample, color=Origin)) +
   geom_point(size = 4) +
   geom_text(vjust = -0.5) +
   labs(title = "Principal Components 2 & 3",
-       x = paste0("PC2 (", round(100 * summary(pca_res)$importance[2, ], 1), "% variance)"),
-       y = paste0("PC3 (", round(100 * summary(pca_res)$importance[3, ], 1), "% variance)")) +
+       x = paste0("PC2 (", round(100 * summary(pca_res)$importance[2, 3], 1), "% variance)"),
+       y = paste0("PC3 (", round(100 * summary(pca_res)$importance[2, 4], 1), "% variance)")) +
   theme_pubr()
 
 
