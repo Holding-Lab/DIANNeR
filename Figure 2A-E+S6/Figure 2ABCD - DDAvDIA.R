@@ -15,7 +15,7 @@ ProteinCounts <-rbind(
                      c(nrow(ttDDA),"timsTOF DDA","Total Protein Count"),
                      c(nrow(ttDIA),"timsTOF DIA","Total Protein Count"),
                      c(nrow(ofDDA[ofDDA$significant==TRUE,]),"Orbitrap Fusion DDA","Significant over IgG"),
-                     c(nrow(ttDDA[ofDDA$significant==TRUE,]),"timsTOF DDA","Significant over IgG"),
+                     c(nrow(ttDDA[ttDDA$significant==TRUE,]),"timsTOF DDA","Significant over IgG"),
                      c(nrow(ttDIA[ttDIA$significant==TRUE,]),"timsTOF DIA","Significant over IgG")
                      )
 
