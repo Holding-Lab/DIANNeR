@@ -187,3 +187,91 @@ ggsave("Figure2ABCD_ProteinCounts_plot.svg", mp, width = 7, height = 5, units = 
 
 
 
+### Hypergeometric tests
+
+combined_gene_df <- bind_rows(ofDDA, ttDDA, ttDIA)
+
+combined_gene_df[is.na(combined_gene_df$Gene),]$Gene<-
+        combined_gene_df[is.na(combined_gene_df$Gene),]$Genes
+
+gene_df <- combined_gene_df %>%
+  pivot_longer(cols = c(GR_1.Intensity, GR_2.Intensity, GR_3.Intensity, 
+                        IgG_1.Intensity, IgG_2.Intensity, IgG_3.Intensity),
+               names_to = "Sample",
+               values_to = "Intensity")
+
+gene_df <- gene_df %>%
+  mutate(Antibody = ifelse(grepl("^GR", Sample), "GR", "IgG"),
+         Replicate = gsub(".*_(\\d).*", "\\1", Sample))
+
+OrbitrapDDAGenes<-
+  gene_df$Gene[gene_df$acquisition  =="DDA" &
+               gene_df$MS  =="Orbitrap Fusion" &
+               gene_df$significant == TRUE]
+
+timsTOFDDAGenes<-
+gene_df$Gene[gene_df$acquisition  =="DDA" &
+               gene_df$MS  =="timsTOF"&
+               gene_df$significant == TRUE]
+
+timsTOFDIAGenes<-
+gene_df$Gene[gene_df$acquisition  =="DIA" &
+               gene_df$MS  =="timsTOF"&
+               gene_df$significant == TRUE]
+
+
+BioGrid<-read.delim("../Figure 1C+S1+S2/BIOGRID-GENE-109165-4.4.245.DOWNLOADS/BIOGRID-GENE-109165-4.4.245.tab3.txt")
+
+BGa<-BioGrid[  (BioGrid$Experimental.System == "Affinity Capture-MS" | 
+                  BioGrid$Experimental.System ==  "Proximity Label-MS") & 
+                 BioGrid$Organism.Name.Interactor.A == "Homo sapiens" &
+                 BioGrid$Organism.Name.Interactor.B == "Homo sapiens",
+]$Official.Symbol.Interactor.A
+
+BGb<-BioGrid[  (BioGrid$Experimental.System == "Affinity Capture-MS" | 
+                  BioGrid$Experimental.System ==  "Proximity Label-MS") & 
+                 BioGrid$Organism.Name.Interactor.A == "Homo sapiens" &
+                 BioGrid$Organism.Name.Interactor.B == "Homo sapiens",
+]$Official.Symbol.Interactor.B
+
+BGTFs<-unique(c(BGa,BGb))
+length(BGTFs)
+#787 protein retrieved from Biogrid
+
+
+length(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs])
+#[1] 54
+length(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs])
+#[1] 60
+length(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs])
+#[1] 144
+
+##Hypergeometric tests 
+#Orbitrap DDA
+phyper(length(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs]) - 1,
+       length(unique(BGTFs)), 
+       20400 - length(unique(BGTFs)) ,
+       #Estimate of total number of proteins in Uniprot
+       length(TFs),
+       lower.tail = FALSE)
+#[1] 0.006769161
+
+#TimsTOF DDA
+phyper(length(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs]) - 1,
+       length(unique(BGTFs)), 
+       20400 - length(unique(BGTFs)) ,
+       #Estimate of total number of proteins in Uniprot
+       length(TFs),
+       lower.tail = FALSE)
+#[1] 0.0003761695
+
+#TimsTOF DIA
+phyper(length(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs]) - 1,
+       length(unique(BGTFs)), 
+       20400 - length(unique(BGTFs)) ,
+       #Estimate of total number of proteins in Uniprot
+       length(TFs),
+       lower.tail = FALSE)
+#[1] 3.201387e-45
+
+
