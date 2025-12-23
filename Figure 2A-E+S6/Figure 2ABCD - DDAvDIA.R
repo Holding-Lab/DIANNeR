@@ -115,7 +115,6 @@ p3<-p2 + stat_pvalue_manual(stat.test_GR,  label = "p = {p.adj}")
 
 
 
-
 combined_df
 combined_df$MSacquisition<-paste(combined_df$MS,combined_df$acquisition)
 
@@ -183,7 +182,7 @@ mp<-ggarrange(p3,p,pv,volp)
 mp
 
 # Save as SVG for manuscript
-ggsave("Figure2ABCD_ProteinCounts_plot.svg", mp, width = 7, height = 5, units = "in", dpi = 300)
+#ggsave("Figure2ABCD_ProteinCounts_plot.svg", mp, width = 7, height = 5, units = "in", dpi = 300)
 
 
 
@@ -207,17 +206,20 @@ gene_df <- gene_df %>%
 OrbitrapDDAGenes<-
   gene_df$Gene[gene_df$acquisition  =="DDA" &
                gene_df$MS  =="Orbitrap Fusion" &
-               gene_df$significant == TRUE]
+               gene_df$significant == TRUE &
+               gene_df$GR_vs_IgG_log2.fold.change > 1.5]
 
 timsTOFDDAGenes<-
 gene_df$Gene[gene_df$acquisition  =="DDA" &
                gene_df$MS  =="timsTOF"&
-               gene_df$significant == TRUE]
+               gene_df$significant == TRUE &
+               gene_df$GR_vs_IgG_log2.fold.change > 1.5]
 
 timsTOFDIAGenes<-
 gene_df$Gene[gene_df$acquisition  =="DIA" &
                gene_df$MS  =="timsTOF"&
-               gene_df$significant == TRUE]
+               gene_df$significant == TRUE &
+               gene_df$GR_vs_IgG_log2.fold.change > 1.5]
 
 
 BioGrid<-read.delim("../Figure 1C+S1+S2/BIOGRID-GENE-109165-4.4.245.DOWNLOADS/BIOGRID-GENE-109165-4.4.245.tab3.txt")
@@ -251,27 +253,92 @@ length(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs])
 phyper(length(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs]) - 1,
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
-       #Estimate of total number of proteins in Uniprot
-       length(TFs),
+       #20400 is an estimate of total number of proteins in Uniprot
+       length(OrbitrapDDAGenes),
        lower.tail = FALSE)
-#[1] 0.006769161
+#[1] 1.988389e-06
 
 #TimsTOF DDA
 phyper(length(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs]) - 1,
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
-       #Estimate of total number of proteins in Uniprot
-       length(TFs),
+       length(timsTOFDDAGenes),
        lower.tail = FALSE)
-#[1] 0.0003761695
+#[1]2.711933e-09
 
 #TimsTOF DIA
 phyper(length(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs]) - 1,
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
-       #Estimate of total number of proteins in Uniprot
-       length(TFs),
+       length(timsTOFDIAGenes),
        lower.tail = FALSE)
-#[1] 3.201387e-45
+#[1] 4.906119e-28
 
+
+#Compare to Beck et al.
+
+BeckEtAl<-unique(read.csv(file="csv/BeckEtAl.csv", header=FALSE))$V1
+length(BeckEtAl)
+
+library(org.Hs.eg.db)
+library(AnnotationDbi)
+#[1] 25
+BeckMapping <- AnnotationDbi::select(
+  org.Hs.eg.db,
+  keys     = BeckEtAl,
+  keytype  = "UNIPROT",
+  columns  = c("SYMBOL")
+)
+
+
+length(BeckMapping$SYMBOL[BeckMapping$SYMBOL %in% BGTFs])
+#[1] 12
+phyper(length(BeckMapping$SYMBOL[BeckMapping$SYMBOL %in% BGTFs]) - 1,
+       length(unique(BGTFs)), 
+       20400 - length(unique(BGTFs)) ,
+       #20400 is an estimate of total number of proteins in Uniprot
+       length(BeckMapping$SYMBOL),
+       lower.tail = FALSE)
+#[1] 3.277338e-11
+
+
+#Minium overlap if to get p = 0.01
+p.val<-phyper(seq(1:200),
+       length(unique(BGTFs)), 
+       20400 - length(unique(BGTFs)) ,
+       length(timsTOFDIAGenes),
+       lower.tail = FALSE)
+#[1] 4.906119e-28
+n.ip<-seq(1:200)
+
+plot(
+  n.ip, p.val,
+  type = "l",
+  col  = "red",
+  log  = "y",  # log-scale y-axis so you can see the drop
+  xlab = "Number of validated interactions",
+  ylab = "log(p-value)",
+)
+
+alpha <- 0.01
+idx    <- which(p.val < alpha)[1]
+n.sig  <- n.ip[idx]
+
+
+abline(h = alpha, lty = 3, col = "black")       # p = 0.01 (dotted horizontal)
+abline(v = n.sig, lty = 2, col = "black")       # vertical at first significant n
+
+text(
+  x = n.sig,
+  y = p.val[idx]+0.2,
+  labels = paste0("n = ", n.sig),
+  pos = 4, offset = 0.5
+)
+
+# 
+# phyper(1, #number of failure 'pull from the urn)
+#               length(timsTOFDIAGenes)*0.01, #bad hits
+#               length(timsTOFDIAGenes)*0.99 , #good hit in urn
+#               20, #number drawn
+#               lower.tail = FALSE)
 

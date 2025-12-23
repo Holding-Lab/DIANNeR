@@ -1,0 +1,87 @@
+﻿SRX,Antigen,Treatment1,Treament2,Time,Antibody,Ref,Comments,Heatmap
+SRX1012659,PGR,R5020,None,3 hours,sc-7208,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX1012658,PGR,R5020,None,3 hours,sc-7208,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX1012660,PGR,R5020,None,3 hours,sc-7208,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX1012654,PGR,Progesterone,None,3 hours,sc-7208,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX1012653,PGR,Progesterone,None,3 hours,sc-7208,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX1012655,PGR,Progesterone,None,3 hours,sc-7208,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX10365514,AR,DHT,None,X,Millipore 06-680,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,TRUE
+SRX10365515,AR,DHT,None,X,Millipore 06-680,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,TRUE
+SRX10365534,ER,Vehicle,50 uM EHT 1864,1 hour,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,FALSE
+SRX10365557,ER,Vehicle,Vehicle,1 hour,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,FALSE
+SRX10365533,ER,Vehicle,50 uM EHT 1864,1 hour,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,FALSE
+SRX1012632,ER,R5020,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,TRUE
+SRX1585243,ER,Tamoxifen resitance,None,NA,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26610607,"Interesting overlap, but makes figure too complex",FALSE
+SRX1161168,ER,untreated,None,30 minutes,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/27062924,,FALSE
+SRX7846778,ER,Estradiol,Vehicle,45 mintues,Unknown,,No publication details,FALSE
+SRX5465793,ER,Full media,None,None,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/31729597,,FALSE
+SRX19024872,ER,Dexamethasone,None,2 hours,"06-935, Merck",https://www.ncbi.nlm.nih.gov/pubmed/37902007,,TRUE
+SRX1012630,ER,Progesterone,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,JCF1544 - https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE68355,TRUE
+SRX19024874,ER,Dexamethasone,None,2 hours,"06-935, Merck",https://www.ncbi.nlm.nih.gov/pubmed/37902007,,TRUE
+SRX2943589,ER,Estradiol/Fullmedia?,shKMT2C,,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29755131,,FALSE
+SRX2943585,ER,Estradiol/Fullmedia?,shKMT2C,,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29755131,,FALSE
+SRX4451215,ER,Estradiol,Vehicle,30 minutes,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/30455249,,TRUE
+SRX10365536,ER,50 uM EHT 1864,,1 hour,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/34373577,,FALSE
+SRX1012633,ER,R5020,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX1012629,ER,Progesterone,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,JC1534 - https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE68355,TRUE
+SRX10365532,ER,Estradiol,None,,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX3110722,ER,Fulvestrant + Spike in,Spike-in Mouse Chromatin,48 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29672735,,FALSE
+SRX371468,ER,?,?,?,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/22217937,"Mostly clinical sample paper, would need to check metadata carefully",FALSE
+SRX3080214,ER,Tamoxifen,?,7 days,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29467493,MCF-7/c-Jun -Tet cells,FALSE
+SRX1012631,ER,R5020,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX3123829,ER,RAD001,?,?,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29483206,,FALSE
+SRX2943591,ER,Estradiol/Fullmedia?,shKMT2C,,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29755131,,FALSE
+SRX194572,ER,Full media,None,NA,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/23403292,,FALSE
+SRX4451217,ER,Estradiol,Vehicle,30 minutes,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/30455249,,TRUE
+SRX371469,ER,?,?,?,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/22217937,"Mostly clinical sample paper, would need to check metadata carefully",FALSE
+SRX19024875,ER,Full media,None,2 hours,"06-935, Merck",https://www.ncbi.nlm.nih.gov/pubmed/37902007,,FALSE
+SRX1585242,ER,?,?,?,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26610607,"Not clear to me why this would match so poorly, but it is a drug treament paper",FALSE
+SRX5323878,ER,IL6,None,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/32679107,,FALSE
+SRX1012628,ER,Estradiol + Progesterone,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,TRUE
+SRX5323877,ER,Full media,None,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/32679107,,FALSE
+SRX1531796,ER,Estradiol,None,2 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/27739523,,TRUE
+SRX4451216,ER,Estradiol,Vehicle,30 minutes,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/30455249,,TRUE
+SRX19024873,ER,Full media,None,2 hours,"06-935, Merck",https://www.ncbi.nlm.nih.gov/pubmed/37902007,,FALSE
+SRX1161171,ER,Estradiol,None,30 minutes,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/27062924,,TRUE
+SRX8537715,ER,Estradiol,?,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/35950920,Aromotase inhibitors?,FALSE
+SRX330068,ER,Transfected with LRH-1 siRNA,?,?,sc-543,,,FALSE
+SRX3080213,ER,Estradiol,None,7 days,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29467493,MCF-7/c-Jun -Tet mutant cells,TRUE
+SRX2912057,ER,Dexamethasone,None,1 hour,sc-543,,No publication details,FALSE
+SRX1161169,ER,untreated,None,30 minutes,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/27062924,,FALSE
+SRX8537714,ER,Estradiol,?,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/35950920,Aromotase inhibitors?,FALSE
+SRX371478,ER,Cocktail 90?,?,?,sc-543,,,FALSE
+SRX330070,ER,Transfected with LRH-1 siRNA,?,?,sc-543,,,FALSE
+SRX19024871,ER,Full media,None,2 hours,"06-935, Merck",https://www.ncbi.nlm.nih.gov/pubmed/37902007,,FALSE
+SRX330069,ER,siControl,?,?,sc-543,,,FALSE
+SRX3110725,ER,Full media + Spike in,Spike-in Mouse Chromatin,NA,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29672735,"See paper, mouse spike-in is not good for experimental use",FALSE
+SRX1469949,ER,control sgRNA,,,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26751173,,FALSE
+SRX1012627,ER,Full media,None,3 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/26153859,,FALSE
+SRX5323873,ER,Full media,None,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/32679107,,FALSE
+SRX5323872,ER,IL6,None,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/32679107,,FALSE
+SRX371479,ER,Cocktail 90?,?,?,sc-543,,,FALSE
+SRX3583203,ER,Estradiol,None,16 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/30944316,,TRUE
+SRX14255714,ER,Vehicle,None,?,?,https://www.ncbi.nlm.nih.gov/pubmed/35654829,,FALSE
+SRX371476,ER,Tamoxfen Resitance,None,NA,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/22217937,,FALSE
+SRX14875683,ER,siCtrl,None,NA,?,,,FALSE
+SRX5323876,ER,IL6,None,?,cocktail,https://www.ncbi.nlm.nih.gov/pubmed/32679107,,FALSE
+SRX20282946,ER,No estrogen,None,?,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/37834026,control for some resveratrol,TRUE
+SRX8616962,ER,siTET2,None,?,ab3575,,,FALSE
+SRX3110718,ER,Fulvestrant,Spike-in HC11,48 hours,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29672735,,TRUE
+SRX3080212,ER,No estrogen,None,7 days,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29467493,MCF-7/c-Jun -Tet cells,TRUE
+SRX2943597,ER,shRenilla,None,?,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29755131,,FALSE
+SRX2912059,ER,15 min E2 and 60 min E2+Dexamethasone,None,75  minutes,sc-543,,No publication details,FALSE
+SRX19024876,ER,Dexamethasone,None,2 hours,"06-935, Merck",https://www.ncbi.nlm.nih.gov/pubmed/37902007,"Bad rep? Does not match other two, very few peaks",FALSE
+SRX3110720,ER,Full media,Spike-in Mouse Chromatin,45 minutes,sc-543,https://www.ncbi.nlm.nih.gov/pubmed/29672735,Mouse Spike-in / Result in paper is not to use,FALSE
+SRX5323874,ER,IL6,,,,https://www.ncbi.nlm.nih.gov/pubmed/32679107,,FALSE
+SRX20282966,ER,TCDD,,,,,,FALSE
+SRX5465792,ER,Over expression?,,,,,,FALSE
+SRX5287706,ER,Fulvestrant,,,,https://pubmed.ncbi.nlm.nih.gov/31303470/,,TRUE
+SRX3428653,ER,Intergrated vectors?,,,,,,FALSE
+SRX3123823,ER,RAD001,,,,,,FALSE
+SRX3110723,ER,Full media,Spike-in Mouse Chromatin,,,,Mouse Spike-in / Result in paper is not to use,FALSE
+SRX2922226,ER,Long-term estrogen deprived,,,sc-543,,,TRUE
+SRX1469951,ER,sgRNA,,,,,,FALSE
+SRX1012694,PGR,No progesterone or estrogen,,,,https://www.ncbi.nlm.nih.gov/pubmed/26153859,JC-2350,TRUE
+SRX1012683,ER,Estradiol,,,sc-543,,Something odd about this 1/2 the number of peaks of other reps (3000 vs 6000),TRUE
+SRX1012682,ER,No estrogen,,,sc-543,,,TRUE
+SRX1012681,ER,Estradiol + Progesterone,,,sc-543,,,TRUE

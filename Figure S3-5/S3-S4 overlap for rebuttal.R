@@ -1,4 +1,4 @@
-df<-read.delim('../Figure S2+3/Scafold/Samples Report With Clusters for D676.tsv')
+df<-read.delim('../Figure 1C+S1+S2/Scafold/Samples Report With Clusters for D676.tsv')
 dfNoClusters<-df[grep("\\.", df$X., invert=TRUE ),]
 TFs_676<-dfNoClusters[dfNoClusters$D676_AT..AT. > 0,]$Alternate.ID
 
@@ -35,7 +35,7 @@ ggvenn(venn_list,
 
 # D714 specific 837
 # Intersection = 781
-# D676 specitic = 202
+# D676 specific = 202
 781/(781+202)
 #[1] 0.7945066
 #Low cell method (D714) detects 80% of the proteins found in the original method (D676)

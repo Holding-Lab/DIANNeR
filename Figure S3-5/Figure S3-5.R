@@ -1,6 +1,6 @@
 #D714 Method Comparison / Low cell number data
-#Sample 1 - RU486 - Thermo Kit - Unused for this paper
-#Sample 2 - RU486 - Overnight  - Unused for this paper   
+#Sample 1 - RU486 - Thermo Kit - Unused for this paper 
+#Sample 2 - RU486 - Overnight  - Unused for this paper (time with beads, not treatment!)
 #Sample 3 - RU486 - 2 hours    - Unused for this paper   
 #Sample 4 - Dex   - Thermo Kit - Unused for this paper   
 #Sample 5 - Dex   - Overnight  
@@ -30,7 +30,7 @@ length(TFs)
 #overnight : 1635 
 #2 hours: 623
 
-BioGrid<-read.delim("../Figure S2+3/BIOGRID-GENE-109165-4.4.245.DOWNLOADS/BIOGRID-GENE-109165-4.4.245.tab3.txt")
+BioGrid<-read.delim("../Figure 1C+S1+S2/BIOGRID-GENE-109165-4.4.245.DOWNLOADS/BIOGRID-GENE-109165-4.4.245.tab3.txt")
 
 BGa<-BioGrid[  (BioGrid$Experimental.System == "Affinity Capture-MS" | 
                   BioGrid$Experimental.System ==  "Proximity Label-MS") & 

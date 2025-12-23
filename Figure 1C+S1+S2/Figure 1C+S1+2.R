@@ -6,6 +6,8 @@
 #Exported Total Spectral Count 
 df<-read.delim('Scafold/Samples Report With Clusters for D676.tsv')
 
+prekovic<-read.delim('PrekovicEtAl/20210705_Project_501_ZR-75-1_GR_versus_ZR-75-1_IgG(2).csv', sep=",",skip=1)
+prekovicSig<-prekovic$gene_name[prekovic$significant.or.not=='Significant']
 dfNoClusters<-df[grep("\\.", df$X., invert=TRUE ),]
 
 
@@ -69,6 +71,16 @@ phyper(length(TFs[TFs %in% BGTFs]) - 1,
        length(TFs),
        lower.tail = FALSE)
 #[1] 6.070497e-22
+
+#BioGrid for Prekovic
+phyper(length(prekovicSig[prekovicSig %in% BGTFs]) - 1,
+       length(unique(BGTFs)), 
+       20400 - length(unique(BGTFs)) ,
+       #Estimate of total number of proteins in Uniprot
+       length(prekovicSig),
+       lower.tail = FALSE)
+#1.312349e-20 for  (PMID: 37902007) 
+
 
 #String
 phyper(length(TFs[TFs %in% StringTFs]) - 1,

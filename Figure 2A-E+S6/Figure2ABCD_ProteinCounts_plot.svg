@@ -95,8 +95,8 @@
 <text x='83.19' y='157.14' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='111.37px' lengthAdjust='spacingAndGlyphs'>Orbitrap Fusion DDA</text>
 <text x='145.82' y='157.14' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='74.66px' lengthAdjust='spacingAndGlyphs'>timsTOF DDA</text>
 <text x='208.45' y='157.14' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='69.32px' lengthAdjust='spacingAndGlyphs'>timsTOF DIA</text>
-<text x='145.82' y='171.38' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='73.38px' lengthAdjust='spacingAndGlyphs'>Protein Count</text>
-<text transform='translate(14.59,95.16) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='101.38px' lengthAdjust='spacingAndGlyphs'>Acquisition Method</text>
+<text x='145.82' y='171.38' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='101.38px' lengthAdjust='spacingAndGlyphs'>Acquisition Method</text>
+<text transform='translate(14.59,95.16) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='73.38px' lengthAdjust='spacingAndGlyphs'>Protein Count</text>
 <rect x='71.70' y='5.98' width='148.24' height='29.24' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
 <text x='77.68' y='24.90' style='font-size: 12.00px; font-family: "Arial";' textLength='46.70px' lengthAdjust='spacingAndGlyphs'>Antibody</text>
 <rect x='131.05' y='12.66' width='15.86' height='15.86' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #0073C2;' />
@@ -125,7 +125,7 @@
 <rect x='374.33' y='103.84' width='21.92' height='34.94' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #1B9E77;' />
 <rect x='436.96' y='51.53' width='21.92' height='87.25' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #1B9E77;' />
 <rect x='336.76' y='112.96' width='21.92' height='25.83' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #D95F02;' />
-<rect x='399.38' y='112.96' width='21.92' height='25.83' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #D95F02;' />
+<rect x='399.38' y='114.04' width='21.92' height='24.74' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #D95F02;' />
 <rect x='462.01' y='87.99' width='21.92' height='50.79' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #D95F02;' />
 </g>
 <g clip-path='url(#cpMC4wMHw1MDQuMDB8MC4wMHwzNjAuMDA=)'>
@@ -147,8 +147,8 @@
 <text x='335.19' y='157.14' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='111.37px' lengthAdjust='spacingAndGlyphs'>Orbitrap Fusion DDA</text>
 <text x='397.82' y='157.14' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='74.66px' lengthAdjust='spacingAndGlyphs'>timsTOF DDA</text>
 <text x='460.45' y='157.14' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='69.32px' lengthAdjust='spacingAndGlyphs'>timsTOF DIA</text>
-<text x='397.82' y='171.38' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='73.38px' lengthAdjust='spacingAndGlyphs'>Protein Count</text>
-<text transform='translate(266.59,95.16) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='101.38px' lengthAdjust='spacingAndGlyphs'>Acquisition Method</text>
+<text x='397.82' y='171.38' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='101.38px' lengthAdjust='spacingAndGlyphs'>Acquisition Method</text>
+<text transform='translate(266.59,95.16) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='73.38px' lengthAdjust='spacingAndGlyphs'>Protein Count</text>
 <rect x='252.18' y='5.98' width='291.28' height='29.24' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
 <text x='258.16' y='24.90' style='font-size: 12.00px; font-family: "Arial";' textLength='48.69px' lengthAdjust='spacingAndGlyphs'>Category</text>
 <rect x='313.89' y='12.66' width='15.86' height='15.86' style='stroke-width: 1.07; stroke-linecap: butt; stroke-linejoin: miter; fill: #1B9E77;' />
@@ -610,26 +610,26 @@
 <circle cx='316.77' cy='315.37' r='2.49' style='stroke-width: 0.71; stroke: #999999; fill: #999999;' />
 <circle cx='314.82' cy='316.19' r='2.49' style='stroke-width: 0.71; stroke: #999999; fill: #999999;' />
 <circle cx='309.92' cy='316.91' r='2.49' style='stroke-width: 0.71; stroke: #999999; fill: #999999;' />
-<line x1='452.24' y1='207.81' x2='423.15' y2='204.11' style='stroke-width: 1.07;' />
-<line x1='441.17' y1='195.10' x2='420.45' y2='203.45' style='stroke-width: 1.07;' />
-<line x1='420.96' y1='197.50' x2='413.45' y2='203.24' style='stroke-width: 1.07;' />
-<line x1='394.44' y1='197.50' x2='400.42' y2='203.18' style='stroke-width: 1.07;' />
-<line x1='346.85' y1='192.88' x2='392.08' y2='205.44' style='stroke-width: 1.07;' />
-<line x1='369.03' y1='218.63' x2='378.27' y2='218.35' style='stroke-width: 1.07;' />
-<line x1='421.36' y1='221.21' x2='395.78' y2='222.21' style='stroke-width: 1.07;' />
-<line x1='416.88' y1='234.78' x2='401.71' y2='238.13' style='stroke-width: 1.07;' />
-<text x='470.15' y='210.95' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='32.23px' lengthAdjust='spacingAndGlyphs'>STAT5A</text>
-<text x='463.59' y='197.54' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='41.24px' lengthAdjust='spacingAndGlyphs'>SMARCE1</text>
-<text x='428.03' y='195.70' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='41.72px' lengthAdjust='spacingAndGlyphs'>SMARCD2</text>
-<text x='392.03' y='195.70' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='32.71px' lengthAdjust='spacingAndGlyphs'>DNAJA1</text>
-<text x='324.19' y='195.70' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='41.72px' lengthAdjust='spacingAndGlyphs'>SMARCC1</text>
-<text x='366.44' y='208.38' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='28.45px' lengthAdjust='spacingAndGlyphs'>MED24</text>
-<text x='352.53' y='221.69' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='29.40px' lengthAdjust='spacingAndGlyphs'>NCOA3</text>
-<text x='435.72' y='224.27' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='25.12px' lengthAdjust='spacingAndGlyphs'>MCM5</text>
-<text x='469.62' y='224.30' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='27.98px' lengthAdjust='spacingAndGlyphs'>NR3C1</text>
-<text x='433.85' y='237.60' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='30.34px' lengthAdjust='spacingAndGlyphs'>TRIM28</text>
-<text x='439.88' y='252.52' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='26.55px' lengthAdjust='spacingAndGlyphs'>STAT1</text>
-<text x='416.99' y='265.87' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='30.34px' lengthAdjust='spacingAndGlyphs'>HMGB1</text>
+<line x1='452.34' y1='207.81' x2='423.15' y2='204.11' style='stroke-width: 1.07;' />
+<line x1='441.15' y1='195.10' x2='420.45' y2='203.45' style='stroke-width: 1.07;' />
+<line x1='420.95' y1='197.50' x2='413.45' y2='203.24' style='stroke-width: 1.07;' />
+<line x1='394.43' y1='197.50' x2='400.42' y2='203.18' style='stroke-width: 1.07;' />
+<line x1='347.10' y1='192.91' x2='392.08' y2='205.44' style='stroke-width: 1.07;' />
+<line x1='369.50' y1='218.63' x2='378.27' y2='218.35' style='stroke-width: 1.07;' />
+<line x1='421.50' y1='221.20' x2='395.78' y2='222.21' style='stroke-width: 1.07;' />
+<line x1='416.76' y1='234.79' x2='401.71' y2='238.13' style='stroke-width: 1.07;' />
+<text x='470.25' y='210.95' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='32.23px' lengthAdjust='spacingAndGlyphs'>STAT5A</text>
+<text x='463.57' y='197.54' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='41.24px' lengthAdjust='spacingAndGlyphs'>SMARCE1</text>
+<text x='428.01' y='195.70' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='41.72px' lengthAdjust='spacingAndGlyphs'>SMARCD2</text>
+<text x='392.01' y='195.70' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='32.71px' lengthAdjust='spacingAndGlyphs'>DNAJA1</text>
+<text x='324.45' y='195.72' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='41.72px' lengthAdjust='spacingAndGlyphs'>SMARCC1</text>
+<text x='366.46' y='208.38' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='28.45px' lengthAdjust='spacingAndGlyphs'>MED24</text>
+<text x='353.01' y='221.69' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='29.40px' lengthAdjust='spacingAndGlyphs'>NCOA3</text>
+<text x='435.86' y='224.26' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='25.12px' lengthAdjust='spacingAndGlyphs'>MCM5</text>
+<text x='469.67' y='224.28' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='27.98px' lengthAdjust='spacingAndGlyphs'>NR3C1</text>
+<text x='433.73' y='237.61' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='30.34px' lengthAdjust='spacingAndGlyphs'>TRIM28</text>
+<text x='439.92' y='252.54' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='26.55px' lengthAdjust='spacingAndGlyphs'>STAT1</text>
+<text x='417.04' y='265.87' text-anchor='middle' style='font-size: 8.54px; font-family: "Arial";' textLength='30.34px' lengthAdjust='spacingAndGlyphs'>HMGB1</text>
 <line x1='293.99' y1='323.15' x2='293.99' y2='185.98' style='stroke-width: 1.07; stroke: #7F7F7F; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
 <line x1='321.95' y1='323.15' x2='321.95' y2='185.98' style='stroke-width: 1.07; stroke: #7F7F7F; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
 <line x1='284.27' y1='276.33' x2='498.02' y2='276.33' style='stroke-width: 1.07; stroke: #7F7F7F; stroke-dasharray: 5.69,5.69; stroke-linecap: butt;' />
