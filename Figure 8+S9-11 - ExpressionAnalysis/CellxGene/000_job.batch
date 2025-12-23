@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=CellxGene_pullAndFilter        # Name of your job
+#SBATCH --output=logs/001__%j.out 		  # STDOUT file (%j = job ID)
+#SBATCH --error=logs/000_%j.err  		  # STDERR file
+#SBATCH --time=48:00:00
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=16G
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=andrew.holding@york.ac.uk
+
+python3 ./001_CellxGene_pullAndFilter-25-10-30.py
+
+
+# --- Done ---
+echo "Job finished at: $(date)"
+
