@@ -1,7 +1,7 @@
 # DIANNeR
 
 Code supporting the **DIANNeR** manuscript  
-*“Cross-tissue analysis of the glucocorticoid receptor interactome by label-free DIA-NN-enabled RIME (DIANNeR) reveals conserved transcriptional roles and tissue-specific functional enrichment”*.
+*“Label-free DIA-NN enabled RIME (DIANNeR) reveals glucocorticoid receptor interaction networks in breast, bladder, and blood across normal untransformed cells, cancer cell lines, and PDXs”*.
 
 This repository contains the R code used for analysis and figure generation in the manuscript.
 
