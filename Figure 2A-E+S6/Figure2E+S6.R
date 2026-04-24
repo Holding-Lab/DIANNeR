@@ -27,11 +27,11 @@ gost_results <- gost(query = protein_ids,
                       organism = "hsapiens",    
                       correction_method = "fdr",
                       user_threshold = 0.05,
+                      evcodes = TRUE,
                       sources = c("GO:MF", "GO:CC", "GO:BP", "KEGG", "REAC"))
 
 
 p<-gostplot(gost_results, capped = TRUE, interactive = FALSE)
-
 
 pdf("FigureS6_TCell_DIA_Gprofiler.pdf",width=10,height=12,pointsize=8)
 publish_gostplot(p,
@@ -60,3 +60,69 @@ termBarPlot<-ggplot(head(nuclear_related[order(nuclear_related$p_value),], 20), 
        y = "-log10(p-value)") +
   theme_minimal()
 ggsave("Figure2E_Terms.svg",device="svg", termBarPlot,units="mm",dpi=300,width=175, height=75)
+
+p
+
+#How many proteins are not nuclear, about 12 in total.
+library(dplyr)
+chromatin<-gost_results$result %>%
+  filter(term_id == "GO:0006357") %>%
+  pull(intersection) %>%
+  strsplit(",") %>%
+  unlist()
+
+nucleoplasm <- gost_results$result %>%
+  filter(term_id %in% c("GO:0005634", "GO:0005654","GO:0031981")) %>%
+  pull(intersection) %>%
+  strsplit(",") %>%
+  unlist() %>%
+  unique()
+
+cytosol<-gost_results$result %>%
+  filter(term_id == "GO:0005829") %>%
+  pull(intersection) %>%
+  strsplit(",") %>%
+  unlist()
+
+library(ggVennDiagram)
+
+venn_list <- list(
+  Chromatin = chromatin,
+  Nucleoplasm = nucleoplasm,
+  Cytosol = cytsol
+)
+
+ggVennDiagram(venn_list) +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  labs(title = "GO Cellular Component Overlap")
+
+cytosol_only <- setdiff(cytosol, c(chromatin, nucleoplasm))
+
+library(org.Hs.eg.db)
+library(AnnotationDbi)
+
+AnnotationDbi::select(org.Hs.eg.db,
+                      keys = c("Q13561","Q9NV70","O43303","P43403","Q14204",
+                               "P46778","P51149","O75083","P24534","P53621",
+                               "P04843","P78371"),
+                      columns = "SYMBOL",
+                      keytype = "UNIPROT")
+
+###Are cytosol proteins depleted
+
+all_cytosol <- AnnotationDbi::select(org.Hs.eg.db,
+                                     keys = "GO:0005829",
+                                     columns = "SYMBOL",
+                                     keytype = "GO")
+
+n_cytosol_universe <- length(unique(all_cytosol$SYMBOL))
+n_universe <- 20400
+n_detected <- length(unique(unlist(venn_list)))
+n_cytosol_detected <- length(cytosol_only)
+
+phyper(n_cytosol_detected,
+       n_cytosol_universe,
+       n_universe - n_cytosol_universe,
+       n_detected,
+       lower.tail = TRUE)  # lower.tail = TRUE tests for depletio
+#[1] 1.903274e-05

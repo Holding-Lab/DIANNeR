@@ -130,3 +130,17 @@ dev.off()
 #is not accepted by draw function?
 #library(ComplexHeatmap)
 #draw(ht[[1]])
+
+svg("Figure 3 - Supplimentary - correlation_heatmap.svg", width = 14, height = 14)
+
+plot_correlation_heatmap(FPRime_noPDX,
+                         indicate = c("Antibody", "ModelType", "CellularIdentity","Histology", "Pool"),
+                         show_row_names = FALSE,
+                         show_heatmap_legend = TRUE,
+                         cluster_rows = TRUE,
+                         cluster_columns = TRUE,
+                         clustering_distance_rows="spearman",
+                         clustering_distance_columns="spearman",
+                         column_labels=FPRime_noPDX$pretty_label)
+
+dev.off()

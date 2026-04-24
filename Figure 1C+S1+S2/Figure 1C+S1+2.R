@@ -13,12 +13,6 @@ dfNoClusters<-df[grep("\\.", df$X., invert=TRUE ),]
 
 TFs<-dfNoClusters[dfNoClusters$D676_AT..AT. > 0,]$Alternate.ID
 
-# Code to remove any protein from with IgG sample, however, this removes a lot
-#  of proteins that are in BioGrid
-#    [
-#    !(dfNoClusters[dfNoClusters$D676_AT..AT. > 0,]$Alternate.ID %in% 
-#      dfNoClusters[dfNoClusters$D676_IgG..IgG. > 0,]$Alternate.ID)
-#        ]
 
 length(TFs)
 #991  TFs

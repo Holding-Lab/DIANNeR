@@ -241,72 +241,44 @@ length(BGTFs)
 #787 protein retrieved from Biogrid
 
 
-length(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs])
-#[1] 54
-length(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs])
-#[1] 60
-length(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs])
-#[1] 144
+length(unique(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs]))
+#[1] 9
+length(unique(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs]))
+#[1] 10
+length(unique(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs]))
+#[1] 24
 
 ##Hypergeometric tests 
 #Orbitrap DDA
-phyper(length(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs]) - 1,
+phyper(length(unique(OrbitrapDDAGenes[OrbitrapDDAGenes %in% BGTFs])) - 1,
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
        #20400 is an estimate of total number of proteins in Uniprot
-       length(OrbitrapDDAGenes),
+       length(unique(OrbitrapDDAGenes)),
        lower.tail = FALSE)
-#[1] 1.988389e-06
+#[1] 0.04084166
 
 #TimsTOF DDA
-phyper(length(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs]) - 1,
+phyper(length(unique(timsTOFDDAGenes[timsTOFDDAGenes %in% BGTFs])) - 1,
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
-       length(timsTOFDDAGenes),
+       length(unique(timsTOFDDAGenes)),
        lower.tail = FALSE)
-#[1]2.711933e-09
+#0.01277297
 
 #TimsTOF DIA
-phyper(length(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs]) - 1,
+phyper(length(unique(timsTOFDIAGenes[timsTOFDIAGenes %in% BGTFs])) - 1,
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
-       length(timsTOFDIAGenes),
+       length(unique(timsTOFDIAGenes)),
        lower.tail = FALSE)
-#[1] 4.906119e-28
-
-
-#Compare to Beck et al.
-
-BeckEtAl<-unique(read.csv(file="csv/BeckEtAl.csv", header=FALSE))$V1
-length(BeckEtAl)
-
-library(org.Hs.eg.db)
-library(AnnotationDbi)
-#[1] 25
-BeckMapping <- AnnotationDbi::select(
-  org.Hs.eg.db,
-  keys     = BeckEtAl,
-  keytype  = "UNIPROT",
-  columns  = c("SYMBOL")
-)
-
-
-length(BeckMapping$SYMBOL[BeckMapping$SYMBOL %in% BGTFs])
-#[1] 12
-phyper(length(BeckMapping$SYMBOL[BeckMapping$SYMBOL %in% BGTFs]) - 1,
-       length(unique(BGTFs)), 
-       20400 - length(unique(BGTFs)) ,
-       #20400 is an estimate of total number of proteins in Uniprot
-       length(BeckMapping$SYMBOL),
-       lower.tail = FALSE)
-#[1] 3.277338e-11
-
+#[1] 1.35916e-05
 
 #Minium overlap if to get p = 0.01
 p.val<-phyper(seq(1:200),
        length(unique(BGTFs)), 
        20400 - length(unique(BGTFs)) ,
-       length(timsTOFDIAGenes),
+       length(unique(timsTOFDIAGenes)),
        lower.tail = FALSE)
 #[1] 4.906119e-28
 n.ip<-seq(1:200)
@@ -335,10 +307,4 @@ text(
   pos = 4, offset = 0.5
 )
 
-# 
-# phyper(1, #number of failure 'pull from the urn)
-#               length(timsTOFDIAGenes)*0.01, #bad hits
-#               length(timsTOFDIAGenes)*0.99 , #good hit in urn
-#               20, #number drawn
-#               lower.tail = FALSE)
 

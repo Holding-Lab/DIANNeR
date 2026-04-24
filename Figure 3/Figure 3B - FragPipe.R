@@ -87,5 +87,59 @@ ggsave(
   device = "pdf"
 )
 
+##Explore PC3+
 
 
+plotRimePCAs<-function(Rdata,pca_data,PCx=3,PCy=4) {
+  p<-plot_pca(RData,x=PCx,y=PCy)
+  
+  pca_plot <- ggplot(pca_data, aes(x = .data[[paste0("PC", PCx)]], y = .data[[paste0("PC", PCy)]], color = Origin,
+                                   shape = Antibody,
+                                   fill = Pool,
+                                   label = Tissue)) +
+    geom_point(size = 2, stroke = 1) +
+    geom_text_repel(
+      size = 2.8,           
+      max.overlaps = 10
+    ) +
+    scale_shape_manual(values = c("GR" = 22, "IgG" = 21, "Other" = 23)) +
+    scale_fill_manual(values = c("white", "grey50")) +
+    theme_minimal(base_size = 10) +  # Set base font size to 12 pt
+    theme(
+      legend.title = element_text(size = 10),
+      legend.text = element_text(size = 10),
+      axis.title = element_text(size = 10),
+      axis.text = element_text(size = 10)
+    ) +
+    labs(
+      x = p$labels$x,
+      y = p$labels$y
+    )
+  
+  return(pca_plot)
+}
+  
+library(patchwork)
+
+plots <- list()
+pc_pairs <- list(c(3,4), c(5,6), c(7,8), c(9,10))
+
+for (pair in pc_pairs) {
+  plots[[length(plots) + 1]] <- plotRimePCAs(Rdata, pca_data, pair[1], pair[2])
+}
+
+grid <- wrap_plots(plots, ncol = 2) + 
+  plot_layout(guides = "collect") &
+  theme(legend.position = "bottom")
+grid
+
+
+ggsave(
+  filename = "Figure 3 - Supplimentary - PCA3-10.svg",
+  plot = grid,
+  width = 190,
+  height = 260,
+  units = "mm",
+  dpi = 300,
+  device = "svg"
+)
