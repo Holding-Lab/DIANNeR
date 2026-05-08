@@ -114,14 +114,14 @@ stat.test_GR$y.position=max(summary_df$Protein_Count)*c(1.0,1.11,1.05)
 p3<-p2 + stat_pvalue_manual(stat.test_GR,  label = "p = {p.adj}")
 
 
-
-combined_df
-combined_df$MSacquisition<-paste(combined_df$MS,combined_df$acquisition)
+combined_df_sig <- bind_rows(ofDDA[ofDDA$significant==TRUE  & ofDDA$GR_vs_IgG_log2.fold.change >2,], ttDDA[ttDDA$significant==TRUE  & ttDDA$GR_vs_IgG_log2.fold.change >2,], ttDIA[ttDIA$significant==TRUE  & ttDIA$GR_vs_IgG_log2.fold.change >2,])
+combined_df_sig
+combined_df_sig$MSacquisition<-paste(combined_df_sig$MS,combined_df_sig$acquisition)
 
 groups <- unique(combined_df$MSacquisition)
 
 venn_list <- lapply(groups, function(g) {
-  unique(combined_df$Protein.ID[combined_df$MSacquisition == g])
+  unique(combined_df_sig$Protein.ID[combined_df_sig$MSacquisition == g])
 })
 
 names(venn_list) <- c(
@@ -207,19 +207,19 @@ OrbitrapDDAGenes<-
   gene_df$Gene[gene_df$acquisition  =="DDA" &
                gene_df$MS  =="Orbitrap Fusion" &
                gene_df$significant == TRUE &
-               gene_df$GR_vs_IgG_log2.fold.change > 1.5]
+               gene_df$GR_vs_IgG_log2.fold.change > 2]
 
 timsTOFDDAGenes<-
 gene_df$Gene[gene_df$acquisition  =="DDA" &
                gene_df$MS  =="timsTOF"&
                gene_df$significant == TRUE &
-               gene_df$GR_vs_IgG_log2.fold.change > 1.5]
+               gene_df$GR_vs_IgG_log2.fold.change > 2]
 
 timsTOFDIAGenes<-
 gene_df$Gene[gene_df$acquisition  =="DIA" &
                gene_df$MS  =="timsTOF"&
                gene_df$significant == TRUE &
-               gene_df$GR_vs_IgG_log2.fold.change > 1.5]
+               gene_df$GR_vs_IgG_log2.fold.change > 2]
 
 
 BioGrid<-read.delim("../Figure 1C+S1+S2/BIOGRID-GENE-109165-4.4.245.DOWNLOADS/BIOGRID-GENE-109165-4.4.245.tab3.txt")
@@ -306,5 +306,17 @@ text(
   labels = paste0("n = ", n.sig),
   pos = 4, offset = 0.5
 )
+
+###Did DDA fine FOXP - No. Orbitrap was fun at 1 hour, for our main dataset TimsTOF ran for 1 hour and finds it.
+#This were 100SPD DIA (but still does better than 1 hour on the Orbitrap)
+
+grep("FOXP3", ofDDA, value = TRUE, ignore.case = TRUE)
+grep("FOXP3", ttDDA, value = TRUE, ignore.case = TRUE)
+grep("FOXP3", ttDIA, value = TRUE, ignore.case = TRUE)
+
+grep("BCL11B", ofDDA, value = TRUE, ignore.case = TRUE)
+grep("BCL11B", ttDDA, value = TRUE, ignore.case = TRUE)
+grep("BCL11B", ttDIA, value = TRUE, ignore.case = TRUE)
+
 
 
