@@ -25,12 +25,12 @@ cols_to_add <- DEResultsCombinedPDX |>
 DEResultsPDX <- DEResultsPDX |> 
   left_join(cols_to_add, by = "Gene.Name")
 
-CoreGRComplex<- c("NR3C1", "HOXC9" ,"ARNT","AHR","EP300","BCL11B","FOXP3")#c( "BCL11B", "SMARCD3", "ESR1", "PGR", "AR","FOXP3", "FOXA1")
+CoreGRComplex<- c("NR3C1", "HOXA5" ,"ARNT","AHR","EP300","BCL11B","FOXP3")#c( "BCL11B", "SMARCD3", "ESR1", "PGR", "AR","FOXP3", "FOXA1")
 
 filtered_genes <- DEResultsPDX |> 
   filter(Gene.Name %in% CoreGRComplex)
 
-EpiComplex<-c("SMARCD3", "ESR1", "PGR", "AR",  "FOXA1","HOXC9")
+EpiComplex<-c("SMARCD3", "ESR1", "PGR", "AR",  "FOXA1","HOXA5")
 LymphComplex<-c("FOXP3","BCL11B")
 
 filtered_genes_colour <- filtered_genes |>
@@ -91,8 +91,9 @@ plotProteins<-function(filtered_genes_colour, Complex, contrast="PrimaryCD4_plus
 }
 
 
-p1<-plotProteins(filtered_genes_colour,contrast="PDX_IgG_IP_vs_PDX_GR_IP_log2.fold.change",  c("NR3C1", "EP300", "HOXC9","BCL11B","FOXP3"), ylab_text="LFC Enrichment in PDX of GR interactors vs matched IgG control ") #,"ARNT","AHR",
-p2<-plotProteins(filtered_genes_colour,contrast="PrimaryCD4_plus_T_IgG_vs_PrimaryCD4_plus_T_GR_log2.fold.change",  c("NR3C1",  "EP300","HOXC9","BCL11B","FOXP3"), ylab_text="LFC Enrichment in CD4+ T Cell of GR interactors vs matched IgG control")
+p1<-plotProteins(filtered_genes_colour,contrast="PDX_IgG_IP_vs_PDX_GR_IP_log2.fold.change",  c("NR3C1", "EP300", "HOXA5","BCL11B","FOXP3"), ylab_text="LFC Enrichment  of GR interactors vs matched IgG control (PDX) ")
+p2<-plotProteins(filtered_genes_colour,contrast="PrimaryCD4_plus_T_IgG_vs_PrimaryCD4_plus_T_GR_log2.fold.change",  c("NR3C1",  "EP300","HOXA5","BCL11B","FOXP3"), ylab_text="LFC Enrichment of GR interactors vs matched IgG contro ( CD4+ T Cell)")
+p3<-plotProteins(filtered_genes_colour,contrast="PrimaryBreastEpis._IgG_vs_PrimaryBreastEpis._GR_log2.fold.change",  c("NR3C1",  "EP300","HOXA5","BCL11B","FOXP3"), ylab_text="LFC Enrichment of GR interactors vs matched IgG control (Breast Epithelium)")
 
 
 
@@ -199,13 +200,13 @@ plotPDX <- function(DEResultsPDX,
     theme(legend.position = "top")
 } 
 
-p3<-plotPDX(DEResultsPDX,genes = c("NR3C1", "HOXC9" ,"ARNT","AHR","EP300","BCL11B","FOXP1"))
+#p3<-plotPDX(DEResultsPDX,genes = c("NR3C1", "HOXC9" ,"ARNT","AHR","EP300","BCL11B","FOXP1"))
 
 #q1<-ggarrange(p1,p2,ncol=1,nrow=2)
-ggarrange(p1,p2,ncol=1,nrow=2,common.legend = TRUE, 
+ggarrange(p1,p2,p3, ncol=1,nrow=3,common.legend = TRUE, 
           legend = "bottom")
 
-ggsave(file="PDXvsTCell.svg",width=140, height=140, units="mm")
+ggsave(file="PDXvsTCell.svg",width=140, height=160, units="mm")
 
 #filtered_genes_colour_epi[,c("Gene.Name","BB7_IgG_IP_vs_BB7_GR_IP_log2.fold.change","BB7_IgG_IP_vs_BB7_GR_IP_p.adj")]
 # z1<-plotProteins(filtered_genes_colour, EpiComplex , "HBC34_IgG_IP_vs_HBC34_GR_IP_log2.fold.change", FALSE )

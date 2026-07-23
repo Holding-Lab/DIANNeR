@@ -348,7 +348,7 @@ colVectorReorderPDX <- colVectorPDX[order(match(colVectorPDX, custom_order))]
 
 
 
-CoreGRComplex<-c("NR3C1", "EP300", "NCOA1","RXRA", "ESR1", "PGR","NCOA3", "CUEDC1", "EBAG9","PARP2") #GRbiogrid
+CoreGRComplex<-c("NR3C1", "EP300", "NCOA1","ARNT", "CREB3L4","AHR", "RXRA","HOXC9",  "PRMT3", "PARP2") #GRbiogrid
 GRbiogridPDX<- DEResultsPDX$'Gene.Name'[colVectorPDX == 'hotpink']
 
 
@@ -475,7 +475,7 @@ barplot2
 
 ##Epis vs PDX
 
-CoreGRComplexPDXEpi <- c("CUEDC1","EBAG9","ESR1","PGR","NCOA1","EP300","NRIP1","FOXA1","GRHL1","GRHL2","HOXA5","GREB1","FOX3","SMARCD3")
+CoreGRComplexPDXEpi <- c(ESR1","PGR","NCOA1","EP300","NRIP1","FOXA1","GRHL1","GRHL2","HOXA5","GREB1","FOX3","SMARCD3")
 
 p5<-EnhancedVolcano(DEResultsReorderPDX,
                     lab = DEResultsReorderPDX$'Gene.Name',
