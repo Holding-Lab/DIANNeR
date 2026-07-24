@@ -9,7 +9,7 @@ library(tools)
 library(stringr)
 
 # Load DIA data
-ttDIA <- read.csv("FragPipe Output/E033_DIA_TimsTOF.csv")
+ttDIA <- read.csv("../Figure 1C-K/FragPipe Output/E033_DIA_TimsTOF.csv")
 
 filterDIA<- ttDIA[ ttDIA$GR_vs_IgG_log2.fold.change > 2 &
                     ttDIA$GR_vs_IgG_p.adj < 0.01,]
@@ -127,5 +127,5 @@ termBarPlot<-ggplot(plot_data, aes(fill = source, x = reorder(term_name, gene_ra
 termBarPlot
 
 
-ggsave(termBarPlot,file="1h_barplot.svg", width=120, height=100, units="mm")
+#ggsave(termBarPlot,file="1h_barplot.svg", width=120, height=100, units="mm")
 
