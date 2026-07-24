@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#----------------------------- Slurm directives ------------------------------#
+
+#SBATCH --job-name=alignGR              # Job name
+#SBATCH --ntasks=1                      # Number of MPI tasks to request
+#SBATCH --nodes=1                       # Run on the same node
+#SBATCH --cpus-per-task=80              # Number of CPU cores per MPI task
+#SBATCH --mem=128G                       # Total memory to request
+#SBATCH --time=1-00:00:00               # Time limit (DD-HH:MM:SS)
+#SBATCH --account=biol-holding-2023     # Project account to use
+#SBATCH --output=logs/%x-%j.log          # Standard output log
+#SBATCH --partition=nodes		
+
+module load   STAR/2.7.2b-GCC-8.3.0
+module load   SAMtools
+
+# Directory to store the genome files and index
+genome_dir="./STAR_genome_GRCh38"
+fasta_file="$genome_dir/GRCh38.primary_assembly.genome.fa"
+gtf_file="$genome_dir/gencode.v39.annotation.gtf"
+
+# Step 1: Download the GRCh38 genome and GTF files if they do not exist
+mkdir -p $genome_dir
+
+if [ ! -f "$fasta_file" ]; then
+    echo "Downloading GRCh38 genome FASTA..."
+    wget -O "$fasta_file.gz" "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh38.primary_assembly.genome.fa.gz"
+    gunzip "$fasta_file.gz"
+fi
+
+if [ ! -f "$gtf_file" ]; then
+    echo "Downloading gencode annotation GTF..."
+    wget -O "$gtf_file.gz" "ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/gencode.v39.annotation.gtf.gz"
+    gunzip "$gtf_file.gz"
+fi
+
+# Step 2: Generate the STAR genome index if not already generated
+if [ ! -f "$genome_dir/genomeParameters.txt" ]; then
+    echo "Generating STAR genome index..."
+    STAR --runThreadN 4 \
+         --runMode genomeGenerate \
+         --genomeDir "$genome_dir" \
+         --genomeFastaFiles "$fasta_file" \
+         --sjdbGTFfile "$gtf_file" \
+         --sjdbOverhang 149 \
+	 --limitGenomeGenerateRAM 9000000000 #Deliberately small because const omm erros
+fi
+
+
+# Define the directory to search
+dir="./2024-09-WZ-RNASeq"
+
+mkdir -p BAMs
+
+# Loop through all files in the directory
+for file in "$dir"/*R1_001.fastq.gz; do
+  # Extract the base name (file name without path)
+  base_name=$(basename "$file")
+
+  # Remove the "R1_001.fastq.gz" or "R2_001.fastq.gz" from the file name
+  cleaned_name=$(echo "$base_name" | sed -e 's/_R[12]_001\.fastq\.gz//')
+
+ # Run STAR alignment
+  STAR --runThreadN 80 \
+       --genomeDir "$genome_dir" \
+       --readFilesIn "${dir}/${cleaned_name}_R1_001.fastq.gz" "${dir}/${cleaned_name}_R2_001.fastq.gz" \
+       --readFilesCommand zcat \
+       --outFileNamePrefix BAMs/${cleaned_name}_ \
+       --outSAMtype BAM  Unsorted
+
+  # Sort the BAM file using samtools
+  samtools sort -@ 40 BAMs/${cleaned_name}_Aligned.out.bam -o BAMs/${cleaned_name}_Aligned.sortedByCoord.out.bam
+
+  # Index the sorted BAM file
+  samtools index BAMs/${cleaned_name}_Aligned.sortedByCoord.out.bam
+done

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#----------------------------- Slurm directives ------------------------------#
+#SBATCH --job-name=featureCounts          # Job name
+#SBATCH --ntasks=1                        # Number of MPI tasks to request
+#SBATCH --nodes=1                         # Run on the same node
+#SBATCH --cpus-per-task=8                 # Number of CPU cores per task (adjust)
+#SBATCH --mem=32G                         # Total memory to request
+#SBATCH --time=02:00:00                   # Time limit (HH:MM:SS)
+#SBATCH --account=biol-holding-2023       # Project account to use (adjust if needed)
+#SBATCH --output=logs/%x-%j.log           # Standard output log
+#SBATCH --partition=nodes                 # Partition/queue (adjust if needed)
+#SBATCH --mail-type=BEGIN,END,FAIL   	  # when to send email: job started, finished, and failed
+#SBATCH --mail-user=andrew.holding@york.ac.uk # replace with your email
+
+#------------------------------------------------------------------------------#
+
+set -euo pipefail
+
+module load Subread/2.0.4-GCC-11.3.0
+
+THREADS=${THREADS:-8}
+STRAND=${STRAND:-0}   # 0 = unstranded, 1 = stranded, 2 = reverse
+GTF=${GTF:-./STAR_genome_GRCh38/gencode.v39.annotation.gtf}
+BAM_DIR=${BAM_DIR:-./BAMs}
+OUTDIR=${OUTDIR:-./counts}
+OUTFILE=${OUTFILE:-$OUTDIR/featureCounts.txt}
+
+mkdir -p "$OUTDIR"
+
+featureCounts --countReadPairs -p  -T "$THREADS" -a "$GTF" -o "$OUTFILE" -t exon -g gene_id -s "$STRAND" "$BAM_DIR"/*Aligned.sortedByCoord.out.bam
+
+echo "featureCounts output: $OUTFILE"
+
